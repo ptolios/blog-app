@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom"
+
 function Header() {
   return (
     <>
@@ -7,18 +9,18 @@ function Header() {
         <nav className="content-center">
           <ul className="flex flex-row space-x-10 items-center">
             <li>
-              <a className="hover:text-secondary" href="#">
-                Random Post
-              </a>
+              <Link className="hover:text-secondary" to="/">
+                Home
+              </Link>
             </li>
             <li>
-              <a className="hover:text-secondary" href="#">
+              <Link className="hover:text-secondary" href="/about">
                 About
-              </a>
+              </Link>
             </li>
             <li>
               <button className="bg-primary text-white text-xs rounded-lg p-3">
-                Button
+                Random Post
               </button>
             </li>
           </ul>
