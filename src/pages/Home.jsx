@@ -1,17 +1,35 @@
+import { useState, useEffect } from "react"
+import { getPosts } from "../services/apiService"
 import Post from "../components/Post"
 
 function HomePage() {
+  const [mainPost, setMainPost] = useState({})
+  const [firstSecondaryPost, setFirstSecondaryPost] = useState({})
+  const [secondSecondaryPost, setSecondSecondaryPost] = useState({})
+  // const [relatedPosts, setRelatedPosts] = useState([])
+
+  useEffect(() => {
+    getPosts()
+      .then(({ data }) => {
+        setMainPost(data?.pop(Math.floor(Math.random() * data.length)))
+        setFirstSecondaryPost(data?.pop(Math.floor(Math.random() * data.length)))
+        setSecondSecondaryPost(data?.pop(Math.floor(Math.random() * data.length)))
+        // setRelatedPosts(data)
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+  }, [])
+
   return (
     <main className="container mx-auto">
-      <h1 className="text-6xl mt-20 font-bold">Posts List</h1>
-      <h2 className="text-2xl text-slate-500 font-normal w-1/2 mt-6">
-        "Exploring the Unseen: Dive into the Depths of Adventure, Knowledge, and
-        Inspiration" or "Crafting Creativity: Explore Inspiring Stories and Ideas in Our
-        Blog"
-      </h2>
       {/* Primary Post */}
-      <Post />
+      <Post {...mainPost} />
       {/* Secondary Posts */}
+      <div className="flex gap-8">
+        <Post className="w-1/2" {...firstSecondaryPost} />
+        <Post className="w-1/2" {...secondSecondaryPost} />
+      </div>
       {/* Related Articles*/}
       <div>
         <h2 className="text-4xl font-semibold">Related articles or posts</h2>
