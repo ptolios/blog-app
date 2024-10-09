@@ -1,4 +1,5 @@
 import { NavLink } from "react-router-dom"
+import classes from "./Header.module.css"
 
 function Header() {
   return (
@@ -11,7 +12,9 @@ function Header() {
             <NavLink
               to="/"
               className={({ isActive }) =>
-                "hover:text-secondary p-1 mr-4 rounded-md " + (isActive ? "active" : "")
+                `hover:text-secondary p-1 mr-4 rounded-md ${
+                  isActive ? classes.active : undefined
+                }`
               }
               end
             >
@@ -22,7 +25,9 @@ function Header() {
             <NavLink
               to="/about"
               className={({ isActive }) =>
-                "hover:text-secondary p-1 mr-12 rounded-md " + (isActive ? "active" : "")
+                `hover:text-secondary p-1 mr-12 rounded-md ${
+                  isActive ? classes.active : undefined
+                }`
               }
             >
               About

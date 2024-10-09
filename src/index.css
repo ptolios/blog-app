@@ -12,8 +12,3 @@
   @apply mt-8;
   @apply mb-24;
 }
-
-.active {
-  @apply border-secondary;
-  @apply border-b-2;
-}
