@@ -1,11 +1,12 @@
 import PropTypes from "prop-types"
 import { Link } from "react-router-dom"
 
-function Post({ title, body, photo, className }) {
+function Post({ title, subtitle, body, photo, className }) {
   Post.propTypes = {
     id: PropTypes.number,
     body: PropTypes.string,
     title: PropTypes.string,
+    subtitle: PropTypes.string,
     photo: PropTypes.object,
     className: PropTypes.string,
   }
@@ -15,7 +16,8 @@ function Post({ title, body, photo, className }) {
   return (
     <div className={className}>
       <Link to="/about">
-        <h1 className="text-6xl mt-20 font-bold">{title}</h1>
+        <h1 className="text-6xl text-primary mt-20 font-bold">{title}</h1>
+        <h2 className="text-2xl text-secondary mt-6">{subtitle}</h2>
         <img
           className="rounded-lg mt-20 mx-auto w-fit bg-cover"
           src={photo?.url}
