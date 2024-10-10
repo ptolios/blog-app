@@ -1,4 +1,5 @@
 import { NavLink, useNavigate } from "react-router-dom"
+import { Logo } from "./footer/SocialIcons"
 import classes from "./Header.module.css"
 
 function Header() {
@@ -7,9 +8,12 @@ function Header() {
     navigate("/post/" + Math.floor(Math.random() * 101))
   }
   return (
-    <header className="w-fullpx-16 h-40 py-4 bg-primary-1">
+    <header className="w-full h-40 py-4 bg-primary-1">
       <div className="flex flex-row mx-20 h-full justify-between content-center">
-        <div className="content-center text-xl text-white">My Awesome Blog</div>
+        <div className="flex flex-row content-center items-center justify-between gap-4">
+          <Logo className="h-10 w-10 icon-white" />
+          <div className="content-center text-xl text-white">My Awesome Blog</div>
+        </div>
 
         <nav className="content-center">
           <ul className="flex flex-row items-center">
