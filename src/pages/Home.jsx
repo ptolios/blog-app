@@ -1,12 +1,14 @@
 import { useState, useEffect } from "react"
+import { Link } from "react-router-dom"
 import { getPosts } from "../services/apiService"
 import Post from "../components/Post"
+import RelatedPost from "../components/RelatedPost"
 
 function HomePage() {
   const [mainPost, setMainPost] = useState({})
   const [firstSecondaryPost, setFirstSecondaryPost] = useState({})
   const [secondSecondaryPost, setSecondSecondaryPost] = useState({})
-  // const [relatedPosts, setRelatedPosts] = useState([])
+  const [relatedPosts, setRelatedPosts] = useState([])
 
   useEffect(() => {
     getPosts()
@@ -14,7 +16,7 @@ function HomePage() {
         setMainPost(data?.pop(Math.floor(Math.random() * data.length)))
         setFirstSecondaryPost(data?.pop(Math.floor(Math.random() * data.length)))
         setSecondSecondaryPost(data?.pop(Math.floor(Math.random() * data.length)))
-        // setRelatedPosts(data)
+        setRelatedPosts(data)
       })
       .catch((err) => {
         console.log(err)
@@ -35,110 +37,17 @@ function HomePage() {
         <h2 className="text-4xl font-semibold">Related articles or posts</h2>
       </div>
       {/* Cards*/}
-      <div className="flex flex-row flex-wrap gap-8 justify-between">
-        {/* Card*/}
-        <div className="card">
-          <img
-            className="rounded-lg"
-            src="https://via.placeholder.com/400"
-            alt="image"
-          />
-          <div className="mt-6">
-            <h2 className="text-xl font-medium">Title</h2>
-            <h3 className="mt-1 text-xl opacity-45 font-medium">Author</h3>
-          </div>
-        </div>
-        {/* End Card*/}
-        <div className="card">
-          <img
-            className="rounded-lg"
-            src="https://via.placeholder.com/400"
-            alt="image"
-          />
-          <div className="mt-6">
-            <h2 className="text-xl font-medium">Title</h2>
-            <h3 className="mt-1 text-xl opacity-45 font-medium">Author</h3>
-          </div>
-        </div>
-        <div className="card">
-          <img
-            className="rounded-lg"
-            src="https://via.placeholder.com/400"
-            alt="image"
-          />
-          <div className="mt-6">
-            <h2 className="text-xl font-medium">Title</h2>
-            <h3 className="mt-1 text-xl opacity-45 font-medium">Author</h3>
-          </div>
-        </div>
-        <div className="card">
-          <img
-            className="rounded-lg"
-            src="https://via.placeholder.com/400"
-            alt="image"
-          />
-          <div className="mt-6">
-            <h2 className="text-xl font-medium">Title</h2>
-            <h3 className="mt-1 text-xl opacity-45 font-medium">Author</h3>
-          </div>
-        </div>
-        <div className="card">
-          <img
-            className="rounded-lg"
-            src="https://via.placeholder.com/400"
-            alt="image"
-          />
-          <div className="mt-6">
-            <h2 className="text-xl font-medium">Title</h2>
-            <h3 className="mt-1 text-xl opacity-45 font-medium">Author</h3>
-          </div>
-        </div>
-        <div className="card">
-          <img
-            className="rounded-lg"
-            src="https://via.placeholder.com/400"
-            alt="image"
-          />
-          <div className="mt-6">
-            <h2 className="text-xl font-medium">Title</h2>
-            <h3 className="mt-1 text-xl opacity-45 font-medium">Author</h3>
-          </div>
-        </div>
-        <div className="card">
-          <img
-            className="rounded-lg"
-            src="https://via.placeholder.com/400"
-            alt="image"
-          />
-          <div className="mt-6">
-            <h2 className="text-xl font-medium">Title</h2>
-            <h3 className="mt-1 text-xl opacity-45 font-medium">Author</h3>
-          </div>
-        </div>
-        <div className="card">
-          <img
-            className="rounded-lg"
-            src="https://via.placeholder.com/400"
-            alt="image"
-          />
-          <div className="mt-6">
-            <h2 className="text-xl font-medium">Title</h2>
-            <h3 className="mt-1 text-xl opacity-45 font-medium">Author</h3>
-          </div>
-        </div>
-        <div className="card">
-          <img
-            className="rounded-lg"
-            src="https://via.placeholder.com/400"
-            alt="image"
-          />
-          <div className="mt-6">
-            <h2 className="text-xl font-medium">Title</h2>
-            <h3 className="mt-1 text-xl opacity-45 font-medium">Author</h3>
-          </div>
-        </div>
+      <div className="flex flex-row flex-wrap mx-auto w-full">
+        {relatedPosts.map((post) => (
+          <Link
+            className="mt-8 mb-24 lg:w-1/4 md:w-1/3 w-1/2 grow mx-8"
+            to={`/post/${post.id}`}
+            key={post.id}
+          >
+            <RelatedPost key={post.id} post={post} />
+          </Link>
+        ))}
       </div>
-      {/* End Cards*/} {/* End Related Articles*/}
     </main>
   )
 }
