@@ -1,12 +1,15 @@
-import { NavLink } from "react-router-dom"
+import { NavLink, useNavigate } from "react-router-dom"
 import classes from "./Header.module.css"
 
 function Header() {
+  const navigate = useNavigate()
+  function gotoRandomPost() {
+    navigate("/post/" + Math.floor(Math.random() * 101))
+  }
   return (
     <header className="w-fullpx-16 h-40 py-4 bg-primary-1">
       <div className="flex flex-row mx-20 h-full justify-between content-center">
-
-       <div className="content-center text-xl text-white">My Awesome Blog</div>
+        <div className="content-center text-xl text-white">My Awesome Blog</div>
 
         <nav className="content-center">
           <ul className="flex flex-row items-center">
@@ -36,7 +39,10 @@ function Header() {
               </NavLink>
             </li>
             <li>
-              <button className="bg-secondary-1 text-primary-1 text-xs rounded-lg p-3">
+              <button
+                className="bg-secondary-1 text-primary-1 text-xs rounded-lg p-3"
+                onClick={gotoRandomPost}
+              >
                 Random Post
               </button>
             </li>
