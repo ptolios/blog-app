@@ -19,8 +19,8 @@ function PostPage() {
   return (
     <div className="flex mx-20">
       <div className="w-1/2">
-        <h1 className="text-5xl text-primary">{post.title}</h1>
-        <h2 className="text-2xl text-secondary">{post.subtitle}</h2>
+        <h1 className="text-5xl text-primary-1">{post.title}</h1>
+        <h2 className="text-2xl text-primary-2">{post.subtitle}</h2>
         <div>{post.body}</div>
       </div>
       <div className="w-1/2">

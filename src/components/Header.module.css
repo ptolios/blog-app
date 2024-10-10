@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .active {
-    @apply border-secondary;
+    @apply border-primary-2;
     @apply border-b-2;
     @apply font-semibold;
   }

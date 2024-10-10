@@ -16,8 +16,8 @@ function Post({ id, title, subtitle, body, photo, className }) {
   return (
     <div className={className}>
       <Link to={`/post/${id}`}>
-        <h1 className="text-6xl text-primary mt-20 font-bold">{title}</h1>
-        <h2 className="text-2xl text-secondary mt-6">{subtitle}</h2>
+        <h1 className="text-6xl text-primary-1 mt-20 font-bold">{title}</h1>
+        <h2 className="text-2xl text-primary-2 mt-6">{subtitle}</h2>
         <img
           className="rounded-lg mt-20 mx-auto w-fit bg-cover"
           src={photo?.url}

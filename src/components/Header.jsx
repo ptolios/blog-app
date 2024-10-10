@@ -3,8 +3,8 @@ import classes from "./Header.module.css"
 
 function Header() {
   return (
-    <header className="mx-auto px-16 h-40 py-4 bg-slate-300 flex flex-row justify-between items-stretch">
-      <div className="content-center text-xl">My Awesome Blog</div>
+    <header className="mx-auto px-16 h-24 py-4 bg-primary-1 flex flex-row justify-between items-stretch">
+      <div className="content-center text-xl text-white">My Awesome Blog</div>
 
       <nav className="content-center">
         <ul className="flex flex-row items-center">
@@ -12,7 +12,7 @@ function Header() {
             <NavLink
               to="/"
               className={({ isActive }) =>
-                `hover:text-secondary p-1 mr-4 rounded-md ${
+                `hover:text-primary-2 p-1 mr-4 rounded-md ${
                   isActive ? classes.active : undefined
                 }`
               }
@@ -25,7 +25,7 @@ function Header() {
             <NavLink
               to="/about"
               className={({ isActive }) =>
-                `hover:text-secondary p-1 mr-12 rounded-md ${
+                `hover:text-primary-2 p-1 mr-12 rounded-md ${
                   isActive ? classes.active : undefined
                 }`
               }
@@ -34,7 +34,7 @@ function Header() {
             </NavLink>
           </li>
           <li>
-            <button className="bg-primary text-white text-xs rounded-lg p-3">
+            <button className="bg-primary-1 text-white text-xs rounded-lg p-3">
               Random Post
             </button>
           </li>
