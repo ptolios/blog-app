@@ -1,5 +1,5 @@
 import { NavLink, useNavigate } from "react-router-dom"
-import { Logo } from "./footer/SocialIcons"
+import { Logo, MenuIcon } from "./footer/SocialIcons"
 import classes from "./Header.module.css"
 
 function Header() {
@@ -11,12 +11,12 @@ function Header() {
     <header className="w-full h-40 py-4 bg-primary-1">
       <div className="flex flex-row mx-20 h-full justify-between content-center">
         <div className="flex flex-row content-center items-center justify-between gap-4">
-          <Logo className="h-10 w-10 icon-white" />
+          <Logo className="h-7 w-7 icon-white" />
           <div className="content-center text-xl text-white">My Awesome Blog</div>
         </div>
 
         <nav className="content-center">
-          <ul className="flex flex-row items-center">
+          <ul className="hidden lg:flex flex-row items-center">
             <li>
               <NavLink
                 to="/"
@@ -51,6 +51,9 @@ function Header() {
               </button>
             </li>
           </ul>
+          <div className="lg:hidden icon-white">
+            <MenuIcon className="w-8 h-8" />
+          </div>
         </nav>
       </div>
     </header>
