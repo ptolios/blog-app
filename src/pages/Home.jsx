@@ -27,26 +27,29 @@ function HomePage() {
     <main className="container mx-auto">
       {/* Primary Post */}
       <Post {...mainPost} />
+
       {/* Secondary Posts */}
       <div className="flex gap-8">
         <Post className="w-1/2" {...firstSecondaryPost} />
         <Post className="w-1/2" {...secondSecondaryPost} />
       </div>
+
       {/* Related Articles*/}
-      <div>
-        <h2 className="text-4xl font-semibold">Related articles or posts</h2>
-      </div>
-      {/* Cards*/}
-      <div className="flex flex-row flex-wrap mx-auto w-full">
-        {relatedPosts.map((post) => (
-          <Link
-            className="mt-8 mb-24 lg:w-1/4 md:w-1/3 w-1/2 grow mx-8"
-            to={`/post/${post.id}`}
-            key={post.id}
-          >
-            <RelatedPost key={post.id} post={post} />
-          </Link>
-        ))}
+      <div className="mt-32">
+        <div>
+          <h2 className="text-4xl font-semibold">Related articles or posts</h2>
+        </div>
+        <div className="flex flex-row flex-wrap mx-auto w-full gap-8 justify-between">
+          {relatedPosts.map((post) => (
+            <Link
+              className="mt-8 mb-24 lg:w-1/4 md:w-1/3 w-1/2 grow"
+              to={`/post/${post.id}`}
+              key={post.id}
+            >
+              <RelatedPost key={post.id} post={post} />
+            </Link>
+          ))}
+        </div>
       </div>
     </main>
   )
