@@ -13,8 +13,11 @@ function getPosts() {
       _start: startParam,
       _end: endParam,
     },
-    headers: { "content-type": "application/json" },
   })
 }
 
-export { getPosts }
+function getPost(id) {
+  return api.get(`posts/${id}`)
+}
+
+export { getPosts, getPost }
