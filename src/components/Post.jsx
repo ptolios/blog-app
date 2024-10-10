@@ -1,7 +1,7 @@
 import PropTypes from "prop-types"
 import { Link } from "react-router-dom"
 
-function Post({ id, title, subtitle, body, photo, className }) {
+function Post({ id, title, subtitle, body, photo, className, isMain }) {
   Post.propTypes = {
     id: PropTypes.number,
     body: PropTypes.string,
@@ -9,6 +9,7 @@ function Post({ id, title, subtitle, body, photo, className }) {
     subtitle: PropTypes.string,
     photo: PropTypes.object,
     className: PropTypes.string,
+    isMain: PropTypes.bool,
   }
 
   const contents = body?.split("\n")
@@ -19,7 +20,9 @@ function Post({ id, title, subtitle, body, photo, className }) {
         <h1 className="text-6xl text-primary-1 mt-20 font-bold">{title}</h1>
         <h2 className="text-2xl text-primary-2 mt-6">{subtitle}</h2>
         <img
-          className="rounded-lg mt-20 mx-auto w-fit bg-cover"
+          className={`rounded-lg mt-20 mx-auto h-[${
+            isMain ? 40 : 27
+          }em] w-full object-cover`}
           src={photo?.url}
           alt={photo?.title}
         />

@@ -26,7 +26,7 @@ function HomePage() {
   return (
     <main className="container mx-auto">
       {/* Primary Post */}
-      <Post {...mainPost} />
+      <Post {...mainPost} isMain />
 
       {/* Secondary Posts */}
       <div className="flex gap-8">
