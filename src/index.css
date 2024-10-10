@@ -8,7 +8,3 @@
   @apply mx-auto;
 }
 
-.card {
-  @apply mt-8;
-  @apply mb-24;
-}
