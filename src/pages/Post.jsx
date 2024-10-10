@@ -20,24 +20,24 @@ function PostPage() {
 
   return (
     <div className="mt-36">
-    {/* Post contents */}
-    <div className="flex mx-20 gap-36">
-      <div className="w-1/2">
-        <h1 className="text-5xl text-primary-1 mb-6">{post.title}</h1>
+      {/* Post contents */}
+      <div className="flex mx-20 gap-36">
+        <div className="w-1/2">
+          <h1 className="text-5xl text-primary-1 mb-6">{post.title}</h1>
 
-        <h2 className="text-2xl text-primary-2 mb-6">{post.subtitle}</h2>
-        
-        {contents?.map((content) => (
-          <p key={content} className="mb-6">
-            {content}
-          </p>
-        ))}
+          <h2 className="text-2xl text-primary-2 mb-6">{post.subtitle}</h2>
+
+          {contents?.map((content) => (
+            <p key={content} className="mb-6">
+              {content}
+            </p>
+          ))}
+        </div>
+        {/* Post image */}
+        <div className="w-1/2 p-12 bg-secondary-2 bg-opacity-50 rounded-xl">
+          <img className="rounded-xl" src={post.photo?.url} alt={post.photo?.title} />
+        </div>
       </div>
-      {/* Post image */}
-      <div className="w-1/2">
-        <img className="rounded-xl" src={post.photo?.url} alt={post.photo?.title} />
-      </div>
-    </div>
     </div>
   )
 }
