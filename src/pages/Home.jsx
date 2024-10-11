@@ -49,7 +49,7 @@ function HomePage() {
     <main className="container mx-auto">
       {loading && (
         <div className="h-48 flex flex-col items-center justify-center mt-20">
-          <h1 className="text-3xl text-primary-1">Loading posts...</h1>
+          <h1 className="text-3xl text-primary-1">Loading...</h1>
         </div>
       )}
       {!loading && (

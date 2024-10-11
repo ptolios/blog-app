@@ -34,7 +34,7 @@ function PostPage() {
     <div className="mt-36">
       {loading && (
         <div className="h-48 flex flex-col items-center justify-center">
-          <div className="text-3xl text-primary-1">Loading post details...</div>
+          <div className="text-3xl text-primary-1">Loading...</div>
         </div>
       )}
       {/* Post contents */}
