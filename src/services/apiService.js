@@ -1,8 +1,7 @@
 import axios from "axios"
 
 const api = axios.create({
-  // baseURL: "https://jsonplaceholder.typicode.com/",
-  baseURL: "http://localhost:9000",
+  baseURL: import.meta.env.VITE_BACKEND_API_URL,
 })
 
 function getPosts() {
