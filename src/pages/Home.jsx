@@ -29,9 +29,9 @@ function HomePage() {
       <Post {...mainPost} isMain />
 
       {/* Secondary Posts */}
-      <div className="flex gap-8">
-        <Post className="w-1/2" {...firstSecondaryPost} />
-        <Post className="w-1/2" {...secondSecondaryPost} />
+      <div className="flex md:flex-row flex-col gap-8">
+        <Post className="md:w-1/2 w-full" {...firstSecondaryPost} />
+        <Post className="md:w-1/2 w-full" {...secondSecondaryPost} />
       </div>
 
       {/* Related Articles*/}
