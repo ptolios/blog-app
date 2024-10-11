@@ -1,5 +1,6 @@
 import { NavLink, useNavigate } from "react-router-dom"
-import { Logo, MenuIcon } from "./footer/SocialIcons"
+import Dropdown from "./Dropdown"
+import { Logo } from "./footer/SocialIcons"
 import classes from "./Header.module.css"
 
 function Header() {
@@ -44,7 +45,7 @@ function Header() {
             </li>
             <li>
               <button
-                className="bg-secondary-1 text-primary-1 text-xs rounded-lg p-3"
+                className="bg-secondary-1 text-primary-1 hover:text-primary-2 text-xs rounded-lg p-3"
                 onClick={gotoRandomPost}
               >
                 Random Post
@@ -52,7 +53,7 @@ function Header() {
             </li>
           </ul>
           <div className="lg:hidden icon-white">
-            <MenuIcon className="w-8 h-8" />
+            <Dropdown />
           </div>
         </nav>
       </div>
