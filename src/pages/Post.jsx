@@ -34,7 +34,7 @@ function PostPage() {
           ))}
         </div>
         {/* Post image */}
-        <div className="w-1/2 p-12 bg-secondary-2 bg-opacity-50 rounded-xl">
+        <div className="w-1/2">
           <img className="rounded-xl" src={post.photo?.url} alt={post.photo?.title} />
         </div>
       </div>
