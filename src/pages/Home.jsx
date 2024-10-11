@@ -3,18 +3,20 @@ import { Link } from "react-router-dom"
 import { getPosts } from "../services/apiService"
 import Post from "../components/Post"
 import RelatedPost from "../components/RelatedPost"
+import ErrorPage from "./Error"
 
 function HomePage() {
-  const [isLoading, setIsLoading] = useState(false)
+  const [loading, setLoading] = useState(false)
   const [mainPost, setMainPost] = useState({})
   const [firstSecondaryPost, setFirstSecondaryPost] = useState({})
   const [secondSecondaryPost, setSecondSecondaryPost] = useState({})
   const [relatedPosts, setRelatedPosts] = useState([])
+  const [error, setError] = useState()
 
   useEffect(() => {
+    setLoading(true)
     getPosts()
       .then(({ data }) => {
-        setIsLoading(true)
         setMainPost(data?.pop(Math.floor(Math.random() * data.length)))
         setFirstSecondaryPost(data?.pop(Math.floor(Math.random() * data.length)))
         setSecondSecondaryPost(data?.pop(Math.floor(Math.random() * data.length)))
@@ -22,16 +24,35 @@ function HomePage() {
       })
       .catch((err) => {
         console.log(err)
+        setError(err)
+        return err.status === 404 ? (
+          <ErrorPage title="Oops!" errorMessage="Post not found" />
+        ) : (
+          <ErrorPage title={"Something went wrong"} errorMessage={err} />
+        )
       })
       .finally(() => {
-        setIsLoading(false)
+        setLoading(false)
       })
   }, [])
 
+  if (error) {
+    // error handling
+    return error.status === 404 ? (
+      <ErrorPage title="Oops!" errorMessage="Post not found" />
+    ) : (
+      <ErrorPage title={"Something went wrong"} errorMessage={error.message} />
+    )
+  }
+
   return (
     <main className="container mx-auto">
-      {isLoading && <div className="text-5xl text-primary-1 h-screen">Loading...</div>}
-      {!isLoading && (
+      {loading && (
+        <div className="h-48 flex flex-col items-center justify-center mt-20">
+          <h1 className="text-3xl text-primary-1">Loading posts...</h1>
+        </div>
+      )}
+      {!loading && (
         <>
           {/* Primary Post */}
           <Post {...mainPost} isMain />

@@ -1,38 +1,44 @@
 import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
 import { getPost } from "../services/apiService"
+import ErrorPage from "./Error"
 
 function PostPage() {
-  const [isLoading, setIsLoading] = useState(false)
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState()
   const [post, setPost] = useState({})
   const { id } = useParams()
 
   useEffect(() => {
+    setLoading(true)
     getPost(id)
       .then(({ data }) => {
-        setIsLoading
         setPost(data)
       })
       .catch((err) => {
         console.log(err)
+        setError(err)
       })
       .finally(() => {
-        setIsLoading(false)
+        setLoading(false)
       })
   }, [id])
 
   const contents = post.body?.split("\n")
 
+  if (error) {
+    return <ErrorPage title="" errorMessage={error.response.data.error.message} />
+  }
+
   return (
     <div className="mt-36">
-      {isLoading && (
-        <div className="h-screen">
-          <div className="bg-slate-500 text-6xl text-primary-1"></div>
-          Loading post details...
+      {loading && (
+        <div className="h-48 flex flex-col items-center justify-center">
+          <div className="text-3xl text-primary-1">Loading post details...</div>
         </div>
       )}
       {/* Post contents */}
-      {!isLoading && (
+      {!loading && (
         <div className="flex mx-20 gap-36">
           <div className="w-1/2">
             <h1 className="text-5xl text-primary-1 mb-6">{post.title}</h1>
