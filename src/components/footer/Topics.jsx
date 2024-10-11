@@ -10,10 +10,12 @@ function Topic({ topic, className }) {
     <div className={`flex flex-col ${className}`}>
       <div>{topic?.name}</div>
       {topic?.pages.map((page) => (
-        <Link to="#" key={page}>
-          <div className="mt-6 opacity-60" key={page}>
-            {page}
-          </div>
+        <Link
+          to="#"
+          key={page}
+          className="mt-6 opacity-60 hover:text-secondary-1 hover:opacity-100"
+        >
+          {page}
         </Link>
       ))}
     </div>

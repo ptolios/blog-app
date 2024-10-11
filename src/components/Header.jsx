@@ -11,10 +11,13 @@ function Header() {
   return (
     <header className="w-full h-40 py-4 bg-primary-1">
       <div className="flex flex-row mx-20 h-full justify-between content-center">
-        <div className="flex flex-row content-center items-center justify-between gap-4">
+        <NavLink
+          to="/"
+          className="flex flex-row content-center items-center justify-between gap-4"
+        >
           <Logo className="h-7 w-7 icon-white" />
           <div className="content-center text-xl text-white">My Awesome Blog</div>
-        </div>
+        </NavLink>
 
         <nav className="content-center">
           <ul className="hidden lg:flex flex-row items-center">
@@ -22,7 +25,7 @@ function Header() {
               <NavLink
                 to="/"
                 className={({ isActive }) =>
-                  `text-white hover:text-primary-2 p-1 mr-4 rounded-md ${
+                  `text-white hover:text-secondary-1 p-1 mr-4 rounded-md ${
                     isActive ? classes.active : undefined
                   }`
                 }
@@ -35,7 +38,7 @@ function Header() {
               <NavLink
                 to="/about"
                 className={({ isActive }) =>
-                  `text-white hover:text-primary-2 p-1 mr-12 rounded-md ${
+                  `text-white hover:text-secondary-1 p-1 mr-12 rounded-md ${
                     isActive ? classes.active : undefined
                   }`
                 }

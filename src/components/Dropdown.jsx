@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { NavLink, useNavigate } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { MenuIcon } from "./footer/SocialIcons"
 
 const DropdownMenu = () => {
@@ -34,7 +34,7 @@ const DropdownMenu = () => {
             aria-orientation="vertical"
             aria-labelledby="options-menu"
           >
-            <NavLink
+            <Link
               to="/"
               className="w-full text-primary-1 hover:bg-primary-2 hover:text-white p-4 mr-4 rounded-md"
               role="menuitem"
@@ -42,8 +42,8 @@ const DropdownMenu = () => {
               end
             >
               Home
-            </NavLink>
-            <NavLink
+            </Link>
+            <Link
               to="/about"
               className={
                 "w-full text-primary-1 hover:bg-primary-2 hover:text-white p-4 rounded-md"
@@ -52,7 +52,7 @@ const DropdownMenu = () => {
               onClick={() => setIsOpen(false)}
             >
               About
-            </NavLink>
+            </Link>
             <button
               className="bg-secondary-1 text-primary-1 hover:text-primary-2 text-xs rounded-lg p-3 m-3"
               onClick={handleRandomPost}
