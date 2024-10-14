@@ -27,7 +27,12 @@ function PostPage() {
   const contents = post.body?.split("\n")
 
   if (error) {
-    return <ErrorPage title="" errorMessage={error.response.data.error.message} />
+    return (
+      <ErrorPage
+        title="An error occurred"
+        errorMessage={error.response.data.error.message}
+      />
+    )
   }
 
   return (
